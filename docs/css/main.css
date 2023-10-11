@@ -1,0 +1,327 @@
+@import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color:#000;
+    font-size: 14px;
+}
+
+.container{
+    max-width: 1230px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+.title-1 {
+    font-weight: 600;
+    font-size: 34px;
+}
+
+.button {
+    background-color: #070707;
+    display: inline-block;
+    padding: 7px 22px;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #fff;
+    transition: background-color 0.2s ease-in, top 0.2s ease-in;
+}
+
+.button:hover, .button:focus{
+    background-color: #413f3f;
+}
+
+.button:active{
+    background-color: #000;
+    position: relative;
+    top: 1px;
+}
+
+/* HEADER */
+
+.header{
+    padding-top: 46px;
+    background-color: #F1F1F1;
+}
+
+.header-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 76px;
+}
+
+.logo{
+    padding-right: 12px;
+    padding-bottom: 3px;
+    position: relative;
+    font-weight: 700;
+    font-size: 32px;
+    color: #000;
+    line-height: 1;
+}
+
+.logo::after{
+    content: "";
+    display: block;
+    background-color: #FDA300;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  
+}
+
+
+/* NAV */
+
+.nav-list{
+    display: flex;
+    column-gap: 50px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.nav-button{
+    display: none;
+}
+
+.nav-link{
+    color: #000;
+}
+
+.nav-link.active{
+    color: #606060;
+}
+
+/* HEADER CONTENT */
+
+.header-row{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+}
+
+.header-content{
+    margin-top: 124px;
+    max-width: 500px;
+}
+
+.header-heading{
+    font-weight: 600;
+    font-size: 44px;
+    margin-bottom: 20px;
+}
+
+.header-content p{
+    line-height: 2;
+}
+
+
+/* SERVICES */
+
+.services{
+    padding: 90px 0 90px 0;
+}
+
+.services-row{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    row-gap: 60px;
+}
+
+.service-card{
+    min-width: 315px;
+    max-width: 370px;
+    flex: 1 1 0;
+}
+
+.service-card-img {
+    margin-bottom: 30px;
+}
+.srvice-card-title {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.service-card p{
+    line-height: 2;
+}
+
+/* Portfolio */
+
+.portfolio {
+    background-color: #F1F1F1;
+    padding: 90px 0 90px 0;
+}
+
+.portfolio-title {
+    margin-bottom: 70px;
+    text-align: center;
+}
+.project {
+    text-align: center;
+}
+.project + .project{
+    margin-top: 90px;
+}
+.project-img {
+    margin-bottom: 40px;
+}
+.project-title a{
+    font-size: 18px;
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Footer */
+
+.contacts {
+    padding: 90px 0 90px 0;
+    text-align: center;
+}
+.contacts-title {
+    margin-bottom: 40px;
+}
+.contacts-content {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.contacts-button {
+    margin-bottom: 80px;
+
+}
+
+.contacts-social {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    column-gap: 60px;
+    align-items: center;
+}
+
+.contacts-footer {
+    color: #828282;
+}
+
+
+/* Важная часть // Скрываем фон и сам попап // Запрещаем ему быть целью событий*/
+.popup__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: 0.5s all;
+}
+/*При добавлении класса 'active'// Показываем фон и попап  // Возвращаем события*/
+.popup__bg.active { 
+    opacity: 1; 
+    pointer-events: all;
+    transition: 0.5s all;
+}
+/*Центрируем и масштабируем в 0 само окно*/
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 320px;
+    border-radius: 20px;
+    padding: 25px;
+    transition: 0.5s all;
+}
+/* При добавлении класса 'active' // Так же центрируем и плавно увеличиваем*/
+.popup.active { 
+    transform: translate(-50%, -50%) scale(1); 
+    transition: 0.5s all;
+}
+/* Конец важной части */
+/* Далее код для стилизации формы */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.popup label {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.popup .label__text {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #cfd0d3;
+    margin-bottom: 5px;
+}
+
+.popup input {
+    height: 45px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #cfd0d3;
+}
+
+.popup input:focus {
+    border-bottom: 1px solid #2982ff;
+}
+
+.popup input:focus + .label__text {
+    color: #2982ff;
+}
+
+.popup textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #cfd0d3;
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.popup textarea:focus {
+    border-bottom: 1px solid #2982ff;
+}
+
+.popup textarea:focus + .label__text {
+    color: #2982ff;
+}
+
+.popup button {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    border: 2px solid #2982ff;
+    background: #2982ff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s all;
+}
+
+.popup button:hover {
+    background: #fff;
+    color:#2982ff;
+    transition: 0.5s all;
+}
